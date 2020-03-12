@@ -1,9 +1,14 @@
 pipeline {
 	agent any
+	environment  { EXECUTE: TRUE
+	}
 	stages {
 		stage('Stage 1') {
-			  script {
-                    env.variable = "TRUE" {
+				
+			   when {
+                // Only say hello if a "greeting" is requested
+                expression { EXECUTE }
+            }		    
 			
 			steps {
 				
@@ -12,9 +17,9 @@ pipeline {
 		}
 		stage('Stage 2') { 
 			
+
 			   when {
-                // Only say hello if a "greeting" is requested
-                expression { env.variable == 'TRUE' }
+                expression { EXECUTE }
             }
 			
 			
@@ -23,6 +28,10 @@ pipeline {
 			}			
 		}
 		stage('Stage 3') {
+			  when {
+                expression { EXECUTE==FALSE }
+            }
+			
 			steps {
 				sh 'echo "Step Three"'
 			}		
