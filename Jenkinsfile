@@ -1,17 +1,28 @@
 pipeline {
 	agent any
 	stages {
-		stage('One') {
+		stage('Stage 1') {
+			  script {
+                    env.variable = "TRUE" {
+			
 			steps {
-				sh 'echo "Step One"'
+				
+				sh 'echo "true "'
 			}
 		}
-		stage('Two') { 
+		stage('Stage 2') { 
+			
+			   when {
+                // Only say hello if a "greeting" is requested
+                expression { env.variable == 'TRUE' }
+            }
+			
+			
 			steps {
-				sh 'echo "Step Two"'
+				sh 'echo "updating "'
 			}			
 		}
-		stage('Three') {
+		stage('Stage 3') {
 			steps {
 				sh 'echo "Step Three"'
 			}		
