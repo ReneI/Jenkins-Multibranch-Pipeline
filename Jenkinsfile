@@ -8,29 +8,23 @@ pipeline {
     environment {
         CI = 'true'
     }
-    stages {
+ 
+   
+	stages {
+		stage('One') {
+			steps {
+				sh 'echo "Step One"'
+			}
+		}
+		stage('Two') { 
+			steps {
+				sh 'echo "Step Two"'
+			}			
+		}
+		stage('Three') {
+			steps {
+				sh 'echo "Step Three"'
+			}		
+		}
+	}
 
-stage('One') {
-steps {
-sh '
-echo "Step One"
-'
-}
-}
-
-        stage('Build') {
-            steps {
-               sh '
-echo "Step Two"
-'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh '
-echo "Step Three"
-'
-            }
-        }
-    }
-}
