@@ -28,7 +28,7 @@ echo "Step Two"
         stage('Test') {
             steps {
                 sh '
-echo "Step Three""
+echo "Step Three"
 '
             }
         }
