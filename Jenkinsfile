@@ -3,7 +3,7 @@ pipeline {
 	environment  { EXECUTE: TRUE
 	}
 	stages {
-		stage('Stage 1') {
+		stage('First') {
 				
 			   when {
                 // Only say hello if a "greeting" is requested
@@ -15,7 +15,7 @@ pipeline {
 				sh 'echo "true "'
 			}
 		}
-		stage('Stage 2') { 
+		stage('Second') { 
 			
 
 			   when {
@@ -27,7 +27,7 @@ pipeline {
 				sh 'echo "updating "'
 			}			
 		}
-		stage('Stage 3') {
+		stage('Third') {
 			  when {
                 expression { EXECUTE==FALSE }
             }
